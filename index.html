@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset = "utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <title> Baby's First Javascript </title>
+  </head>
+        <body>
+          <section>
+              <div>
+                <form method = "post">
+                    <ul>
+
+                      <li><label for = "name"> Name</label>
+                    <input type = "text" name = "name" placeholder="Please enter your name." required> </li>
+
+
+                    <li><label for = "hair_color"> Hair color</label>
+                  <input type = "color" name = "hair_color" placeholder="Please enter your hair color." required> </li>
+
+                  <li><label for = "age"> Age</label>
+                <input type = "text" name = "age" placeholder="Please enter your age." required> </li>
+
+                <li><label for = "birthplace"> Name</label>
+              <input type = "text" name = "birthplace" placeholder="Please enter your birthplace." required> </li>
+                  </ul>
+                    <button type = "submit" name = "Submit">Submit</button>
+
+
+                 </form>
+              </div>
+              <div class ="details"> </div>
+          </section>
+          <script src="js/vendor/jquery.js"></script>
+          <script src="js/vendor/what-input.js"></script>
+          <script src="js/vendor/foundation.js"></script>
+          <script src="js/app.js"></script>
+            <script type = "text/javascript">
+                document.querySelector('form').onsubmit = function(e) {
+                  e.preventDefault();
+                      var info = '<p>'+ this.name.value + '</p>';
+                        var details = document.querySelector('.details');
+                        details.innerHTML = info;
+                 } //<-- onsubmit ==property, not function
+                 document.querySelector('form').onfocus = function(e) {
+                    this.name.value = "";
+                 }
+                </script>
+         </body>
