@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
+
     <title> Baby's First Javascript </title>
   </head>
         <body>
@@ -37,6 +38,9 @@
                 <ul id = "inputs"> </ul>
               </div>
           </section>
+        <style>
+          ul { width: 50%; }
+        </style>
           <script src="js/vendor/jquery.js"></script>
           <script src="js/vendor/what-input.js"></script>
           <script src="js/vendor/foundation.js"></script>
@@ -46,11 +50,12 @@
                   e.preventDefault();
                     var details = document.querySelector('#inputs');
                       var info = '<li>'+ 'Name: '+this.name.value + '</li>';
-                        info += '<li>'+ 'Hair color:  ' + this.hair_color.value + '</li>';
+                        info += '<li id = outColor>'+ 'Hair color:  ' + this.hair_color.value + '</li>';
                         info += '<li>'+"Age: "+ this.age.value +'</li>';
                         info += '<li>'+ "Birthplace:  " +this.birthplace.value + '</li>';
                         details.innerHTML += "<h3> Input data </h3>"
                         details.innerHTML += info;
+                        document.querySelector('#outColor').style.color = this.hair_color.value;
                  } //<-- onsubmit ==property, not function
                  document.querySelector('form').onfocus = function(e) {
                     this.name.value = "";
