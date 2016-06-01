@@ -13,33 +13,33 @@
           <section>
               <div>
                 <form method = "post">
-                    <ul>
+                    <dl>
 
-                      <li><label for = "name"> Name</label>
-                    <input type = "text" name = "name" placeholder="Please enter your name." required> </li>
+                      <dt><label for = "name"> Name</label>
+                    <input type = "text" name = "name" placeholder="Please enter your name." required> </dt>
 
 
-                    <li><label for = "hair_color"> Hair color</label>
-                  <input type = "color" name = "hair_color" placeholder="Please enter your hair color." required> </li>
+                    <dt><label for = "hair_color"> Hair color</label>
+                  <input type = "color" name = "hair_color" placeholder="Please enter your hair color." required> </dt>
 
-                  <li><label for = "age"> Age</label>
-                <input type = "number" min= "0" name = "age" placeholder="Please enter your age." required> </li>
+                  <dt><label for = "age"> Age</label>
+                <input type = "number" min= "0" name = "age" placeholder="Please enter your age." required> </dt>
 
-                <li><label for = "birthplace"> Birthplace</label>
-              <input type = "text" name = "birthplace" placeholder="Please enter your birthplace." required> </li>
-                  </ul>
+                <dt><label for = "birthplace"> Birthplace</label>
+              <input type = "text" name = "birthplace" placeholder="Please enter your birthplace." required> </dt>
+            </dl>
                     <button type = "submit" name = "Submit">Submit</button>
 
 
                  </form>
 
               </div>
-              <div class ="details">
-                <ul id = "inputs"> </ul>
+              <div id ="details">
+
               </div>
           </section>
         <style>
-          ul { width: 50%; }
+          dl { width: 50%; }
         </style>
           <script src="js/vendor/jquery.js"></script>
           <script src="js/vendor/what-input.js"></script>
@@ -48,11 +48,12 @@
             <script type = "text/javascript">
                 document.querySelector('form').onsubmit = function(e) {
                   e.preventDefault();
-                    var details = document.querySelector('#inputs');
-                      var info = '<li>'+ 'Name: '+this.name.value + '</li>';
-                        info += '<li id = outColor>'+ 'Hair color:  ' + this.hair_color.value + '</li>';
-                        info += '<li>'+"Age: "+ this.age.value +'</li>';
-                        info += '<li>'+ "Birthplace:  " +this.birthplace.value + '</li>';
+                    var details = document.querySelector('#details');
+                      var info = '<dl id = "inputs"> </dl>';
+                       info += '<dt>'+ 'Name: '+ '</dt>'+'<dd>'+this.name.value + '</dd>';
+                        info += '<dt>'+'Hair color: ' +  '</dt>'+ '<dd id = outColor>'+ this.hair_color.value + '</dd>';
+                        info += '<dt>'+"Age: "+ '</dt>' + '<dd>'+this.age.value +'</dd>';
+                        info += '<dt>'+ "Birthplace:  "+ '</dt>'+'<dd>'+ this.birthplace.value + '</dd>';
                         details.innerHTML += "<h3> Input data </h3>"
                         details.innerHTML += info;
                         document.querySelector('#outColor').style.color = this.hair_color.value;
