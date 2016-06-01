@@ -5,7 +5,8 @@ var buildColorDiv = function(color){
 };
 
 var buildList = function(listValues) {
-  return '<dl>' +
+  var dl = document.createElement('dl');
+  dl.innerHTML +=
     '<dt>Name:</dt>'+
     '<dd>'+ listValues.name+ '</dd>'+
     '<dt>'+'Hair color: ' + listValues.haircolor+ '</dt>'+
@@ -15,6 +16,7 @@ var buildList = function(listValues) {
     '<dt>'+ "Birthplace:  "+ '</dt>'+
     '<dd>'+ listValues.birthplace+ '</dd>' +
   '</dl>';
+  return dl;
 };
 
   var addValuesToDetails = function(ev){
@@ -29,7 +31,7 @@ var buildList = function(listValues) {
             colorDiv: colorDiv1,
             birthplace : this.birthplace.value,
       };
-    details.innerHTML +=  buildList(values);
+    details.appendChild(buildList(values));
 
 
   };
